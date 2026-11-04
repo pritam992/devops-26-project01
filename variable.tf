@@ -45,6 +45,10 @@ variable "vpc_cidr" {
   type        = string
 }
 
+variable "vpc_id" {
+  description = "my default vpc id"
+  type = string
+}
 
 # --------------------------------------------------
 # 5. PUBLIC SUBNET CIDR

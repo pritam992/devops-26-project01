@@ -7,6 +7,7 @@ aws_profile    = "s3user-Durga"
 aws_account_id = "728194820446"
 key_name       = "devops-26"
 ami_id         = "ami-0f19324397f53458f"
+vpc_id         = "vpc-00cfc3f50885310eb"
 
 # --------------------------------------------------
 # VPC CONFIGURATION
@@ -42,7 +43,7 @@ environment = "dev"
 # STORAGE CONFIGURATION
 # --------------------------------------------------
 
-root_volume_size = 10
+root_volume_size = 8
 
 
 # --------------------------------------------------
@@ -51,7 +52,7 @@ root_volume_size = 10
 
 # Replace this with your actual public IP address.
 
-allowed_ssh_cidr = "49.42.204.232/32"
+allowed_ssh_cidr = "0.0.0.0/0"
 
 # --------------------------------------------------
 # CLOUDWATCH MONITORING

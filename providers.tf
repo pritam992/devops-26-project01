@@ -9,5 +9,5 @@ provider "aws" {
   region = var.aws_region
 
   # AWS CLI profile used for authentication
-  profile = var.aws_profile
+ # profile = var.aws_profile
 }

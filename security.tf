@@ -12,7 +12,7 @@ resource "aws_security_group" "web" {
   description = "Security group for EC2 web server"
 
   # Attach security group to our existing VPC.
-  vpc_id = aws_vpc.main.id
+  vpc_id = data.aws_vpc.default.id
 
 
   # ------------------------------------------------
@@ -37,8 +37,8 @@ resource "aws_security_group" "web" {
   ingress {
     description = "Allow HTTP web traffic"
 
-    from_port = 80
-    to_port   = 80
+    from_port = 8080
+    to_port   = 8080
     protocol  = "tcp"
 
     cidr_blocks = ["0.0.0.0/0"]

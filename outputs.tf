@@ -18,16 +18,16 @@ output "public_dns" {
 }
 
 # VPC ID
-output "vpc_id" {
-  description = "ID of the created VPC"
-  value       = aws_vpc.main.id
-}
+# output "vpc_id" {
+#   description = "ID of the created VPC"
+#   value       = aws_vpc.main.id
+# }
 
 # Public subnet ID
-output "public_subnet_id" {
-  description = "ID of the public subnet"
-  value       = aws_subnet.public.id
-}
+# output "public_subnet_id" {
+#   description = "ID of the public subnet"
+#   value       = aws_subnet.public.id
+# }
 
 # Security group ID
 output "security_group_id" {

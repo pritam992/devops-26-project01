@@ -6,7 +6,7 @@
 terraform {
 
   # Minimum Terraform version required
-  required_version = ">= 1.17.1"
+  required_version = "<= 1.17.1"
 
   # AWS provider configuration
   required_providers {

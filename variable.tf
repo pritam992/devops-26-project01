@@ -3,3 +3,8 @@ variable "s3_name" {
   description = "bucket used for client file storage"
   default = "prjct1-user-upload-ec2-s3"
 }
+
+variable "bucket_version" {
+  type = string
+  default = "Disabled"
+}

@@ -7,7 +7,7 @@ aws_profile    = "s3user-Durga"
 aws_account_id = "728194820446"
 key_name       = "devops-26"
 ami_id         = "ami-0f19324397f53458f"
-vpc_id         = "vpc-00cfc3f50885310eb"
+project_name   = "devops-26-project01"
 
 # --------------------------------------------------
 # VPC CONFIGURATION
@@ -59,3 +59,5 @@ allowed_ssh_cidr = "0.0.0.0/0"
 # --------------------------------------------------
 
 enable_monitoring = false
+
+

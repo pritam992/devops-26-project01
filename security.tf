@@ -1,72 +1,41 @@
-
-# --------------------------------------------------
-# 1. CREATE SECURITY GROUP
-# --------------------------------------------------
-
 resource "aws_security_group" "web" {
 
-  # Name of the security group in AWS Console.
-  name = "${var.environment}-web-sg"
-
-  # Explains the purpose of this security group.
+  name        = "${var.environment}-web-sg"
   description = "Security group for EC2 web server"
 
-  # Attach security group to our existing VPC.
-  vpc_id = data.aws_vpc.default.id
+  # Attach security group to the custom VPC.
+  vpc_id = module.network.vpc_id
 
-
-  # ------------------------------------------------
-  # 2. SSH INBOUND RULE
-  # ------------------------------------------------
-
+  # SSH access from trusted IP.
   ingress {
     description = "Allow SSH from trusted public IP"
-
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
     cidr_blocks = [var.allowed_ssh_cidr]
   }
 
-
-  # ------------------------------------------------
-  # 3. HTTP INBOUND RULE
-  # ------------------------------------------------
-
+  # Application HTTP traffic.
   ingress {
     description = "Allow HTTP web traffic"
-
-    from_port = 8080
-    to_port   = 8080
-    protocol  = "tcp"
-
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-
-  # ------------------------------------------------
-  # 4. OUTBOUND TRAFFIC RULE
-  # ------------------------------------------------
-
+  # Outbound traffic.
   egress {
     description = "Allow all outbound traffic"
-
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
-
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-
-  # ------------------------------------------------
-  # 5. RESOURCE TAGS
-  # ------------------------------------------------
 
   tags = {
     Name        = "${var.environment}-web-sg"
     Environment = var.environment
-    Project     = "devops-26-project01"
+    Project     = var.project_name
   }
 }

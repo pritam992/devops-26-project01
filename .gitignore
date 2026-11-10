@@ -17,6 +17,8 @@ crash.log
 crash.*.log
 
 # Variable files containing environment-specific values
+*.tfvars
+*.tfvars.json
 *.auto.tfvars
 *.auto.tfvars.json
 

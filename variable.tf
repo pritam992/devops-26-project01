@@ -45,10 +45,6 @@ variable "vpc_cidr" {
   type        = string
 }
 
-variable "vpc_id" {
-  description = "my default vpc id"
-  type = string
-}
 
 # --------------------------------------------------
 # 5. PUBLIC SUBNET CIDR
@@ -137,3 +133,8 @@ variable "enable_monitoring" {
   default     = false
 }
 
+
+variable "project_name" {
+  description = "Project name used for resource tags"
+  type        = string
+}
